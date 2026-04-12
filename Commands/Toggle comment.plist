@@ -5,7 +5,7 @@
 	<key>beforeRunningCommand</key>
 	<string>nop</string>
 	<key>command</key>
-	<string>#!/usr/bin/env ruby18
+	<string>#!/usr/bin/env ruby
 
 # by James Edward Gray II &lt;james (at) grayproductions.net&gt;
 
@@ -73,7 +73,7 @@ var_suffixes.each do |suffix|
   case com[:mode]
   when "line"  # line by line comment
     if text !~ /\A[\t ]+\z/ &amp;&amp;
-       text.send(text.respond_to?(:lines) ? :lines : :to_s).
+       text.lines.
             map { |l| !!(l =~ /\A\s*(#{com[:esc_start]}|$)/) }.uniq == [true]
       if $selected
         out text.gsub( /^(\s*)#{com[:esc_start]}(.*?)#{com[:esc_end]}(\s*)$/,
@@ -124,7 +124,7 @@ when "line"  # apply comment line by line
   else
     indent = text.scan(/^[\t \0]*(?=\S)/).
                   min { |a, b| a.length &lt;=&gt; b.length } || ""
-    text.send(text.respond_to?(:lines) ? :lines : :to_s).map do |line|
+    text.lines.map do |line|
       if line =~ /^(#{indent})(.*)$(\n?)/ then
         out $1 + default[:start] + $2 + default[:end] + $3
       elsif line =~ /^(.*)$(\n?)/ then
@@ -144,7 +144,7 @@ when "block" # apply comment around selection
   elsif default[:no_indent]
     out default[:start], text, default[:end]
   else
-    lines = text.to_a
+    lines = text.lines
     if lines.empty?
       out default[:start], default[:end]
     else
