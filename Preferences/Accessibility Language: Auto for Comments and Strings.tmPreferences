@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Accessibility Language: Auto for Comments and Strings</string>
+	<key>scope</key>
+	<string>source comment - punctuation, source string.quoted - punctuation</string>
+	<key>settings</key>
+	<dict>
+		<key>accessibilityLanguage</key>
+		<string>auto</string>
+	</dict>
+	<key>uuid</key>
+	<string>63FC7AEA-2730-579E-806D-43F5D80246DB</string>
+</dict>
+</plist>
